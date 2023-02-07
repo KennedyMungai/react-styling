@@ -8,6 +8,10 @@ const CourseInput = (props) => {
   const [isValid, setIsValid] = useState(true);
 
   const goalInputChangeHandler = (event) => {
+    if (event.target.value.trim().length > 0) {
+      setIsValid(true);
+    }
+
     setEnteredValue(event.target.value);
   };
 
@@ -18,8 +22,6 @@ const CourseInput = (props) => {
       setIsValid(false);
       return;
     }
-
-    setIsValid(true);
 
     props.onAddGoal(enteredValue);
   };
